@@ -1,0 +1,1 @@
+ALTER TABLE `website_enquiries` ADD `status` enum('new','reviewed','archived') DEFAULT 'new' NOT NULL;

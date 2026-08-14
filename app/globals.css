@@ -1,0 +1,146 @@
+/*
+ * Mukhmall Show revised design direction: creator-led visual media portfolio.
+ * Screenshot-inspired tabs, short-video discovery, editorial stories,
+ * portfolio proof, blog-ready content, and dark/light theme switching.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+  --color-signal: #e6ae2e;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root, .dark {
+  --background: #080808;
+  --foreground: #f5f1e8;
+  --card: #101010;
+  --card-foreground: #f5f1e8;
+  --popover: #101010;
+  --popover-foreground: #f5f1e8;
+  --primary: #e6ae2e;
+  --primary-foreground: #080808;
+  --secondary: #171717;
+  --secondary-foreground: #ddd8cd;
+  --muted: #181818;
+  --muted-foreground: #938f86;
+  --accent: #e6ae2e;
+  --accent-foreground: #080808;
+  --border: rgba(255,255,255,.12);
+  --input: rgba(255,255,255,.14);
+  --ring: #e6ae2e;
+}
+
+.light {
+  --background: #f4f0e7;
+  --foreground: #171512;
+  --card: #eae4d8;
+  --card-foreground: #171512;
+  --popover: #fffdf7;
+  --popover-foreground: #171512;
+  --primary: #b67a0d;
+  --primary-foreground: #fffdf7;
+  --secondary: #e2dbce;
+  --secondary-foreground: #312c24;
+  --muted: #ded7ca;
+  --muted-foreground: #6f675a;
+  --accent: #b67a0d;
+  --accent-foreground: #fffdf7;
+  --border: rgba(23,21,18,.15);
+  --input: rgba(23,21,18,.16);
+  --ring: #b67a0d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--background); color: var(--foreground); font-family: "DM Sans", sans-serif; }
+button, a, input { font: inherit; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+::selection { background: #e6ae2e; color: #080808; }
+
+.studio-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button, img { transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }
+  button:active { transform: scale(.97); }
+}
+
+@media (max-width: 640px) {
+  h1 { letter-spacing: -.07em; }
+  section { scroll-margin-top: 78px; }
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href] { @apply cursor-pointer; }
+}
+
+/* Ankit Singh service layer: the logo and controls use the same Signal Gold mark everywhere. */
+.brand-mark-wrap { display: inline-flex; align-items: center; justify-content: center; min-width: 2.75rem; min-height: 2.75rem; border: 1px solid color-mix(in srgb, #e6ae2e 70%, transparent); background: color-mix(in srgb, #e6ae2e 7%, transparent); }
+.brand-lockup { transition: opacity 180ms cubic-bezier(.23,1,.32,1); }
+.brand-lockup:hover { opacity: .82; }
+
+.theme-toggle { display: inline-flex; height: 2.25rem; width: 3.75rem; align-items: center; border: 1px solid var(--border); background: var(--card); padding: .25rem; color: var(--muted-foreground); transition: border-color 180ms cubic-bezier(.23,1,.32,1), background-color 220ms cubic-bezier(.23,1,.32,1); }
+.theme-toggle:hover { border-color: #e6ae2e; }
+.theme-toggle-track { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: .15rem; }
+.theme-toggle-knob { display: inline-flex; height: 1.55rem; width: 1.55rem; align-items: center; justify-content: center; border-radius: 999px; background: #e6ae2e; color: #080808; box-shadow: 0 0 14px rgba(230,174,46,.28); transition: transform 260ms cubic-bezier(.23,1,.32,1), background-color 220ms ease, color 220ms ease; }
+.theme-toggle.is-light .theme-toggle-knob { transform: translateX(1.45rem); }
+
+.mobile-menu { position: fixed; inset: 0; z-index: 60; }
+.mobile-menu-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: rgba(0,0,0,.62); animation: menu-fade-in 220ms cubic-bezier(.23,1,.32,1) both; }
+.mobile-menu-panel { position: absolute; right: 0; top: 0; display: flex; min-height: 100dvh; width: min(88vw, 420px); flex-direction: column; background: var(--background); border-left: 1px solid var(--border); padding: 6.5rem 1.5rem 1.5rem; box-shadow: -24px 0 60px rgba(0,0,0,.25); animation: menu-slide-in 320ms cubic-bezier(.23,1,.32,1) both; }
+.mobile-menu-panel a { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: .9rem; transition: color 160ms ease, padding-left 180ms cubic-bezier(.23,1,.32,1); }
+.mobile-menu-panel a:hover { color: #e6ae2e; padding-left: .5rem; }
+.mobile-menu-panel a span { color: var(--muted-foreground); font-family: "DM Sans", sans-serif; font-size: .65rem; letter-spacing: .18em; }
+@keyframes menu-slide-in { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes menu-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .mobile-menu-panel, .mobile-menu-backdrop { animation: none; } .theme-toggle-knob { transition: none; } }
+
+/* Compact mobile navigation: no numbered tabs, no duplicate theme icon, more room for content. */
+@media (max-width: 639px) {
+  .site-header > div { padding-top: .55rem; padding-bottom: .55rem; }
+  .site-header .brand-mark-wrap { min-width: 2.25rem; min-height: 2.25rem; }
+  .site-header .brand-mark-wrap img { width: 2rem; height: 2rem; }
+  .site-header .brand-lockup { gap: .55rem; }
+  .site-header .brand-lockup .text-lg { font-size: .92rem; }
+  .site-header .theme-toggle { height: 2rem; width: 2rem; padding: .2rem; }
+  .site-header .theme-toggle-track { justify-content: center; }
+  .site-header .theme-toggle-knob { height: 1.45rem; width: 1.45rem; }
+  .site-header .theme-toggle.is-light .theme-toggle-knob { transform: none; }
+  .site-header > div > div { gap: .45rem; }
+}
+
+@media (max-width: 639px) {
+  .site-header > div { padding-left: .8rem; padding-right: .8rem; padding-top: .42rem; padding-bottom: .42rem; }
+  .site-header .brand-mark-wrap { min-width: 2rem; min-height: 2rem; }
+  .site-header .brand-mark-wrap img { width: 1.72rem; height: 1.72rem; }
+  .site-header .brand-lockup { gap: .42rem; }
+  .site-header .brand-lockup .text-lg { font-size: .82rem; letter-spacing: .06em; }
+  .site-header .brand-lockup .text-\[9px\] { font-size: .42rem; }
+  .site-header .theme-toggle { height: 1.82rem; width: 1.82rem; padding: .16rem; }
+  .site-header .theme-toggle-knob { height: 1.32rem; width: 1.32rem; }
+  .site-header > div > div { gap: .3rem; }
+  .site-header .md\:hidden { padding: .2rem; }
+  .site-header .md\:hidden svg { width: 19px; height: 19px; }
+}

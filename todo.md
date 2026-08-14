@@ -1,0 +1,140 @@
+# Revised Mukhmall Show Website Tasks
+
+- [x] Replace podcast-first navigation with Home, Stories, Videos, Shorts, Portfolio, About, and Blog-ready content.
+- [x] Remove podcast-specific copy, episode metadata, audio controls, and podcast CTAs.
+- [x] Rework the hero to match the supplied screenshot: REAL / STORIES. / DEEP / IMPACT. with Watch Latest and Explore Stories actions.
+- [x] Add responsive navigation with mobile menu and visible desktop tabs.
+- [x] Add persistent dark/light mode toggle with accessible labels.
+- [x] Add short-video showcase cards and video/story content structures.
+- [x] Add portfolio section for creator work and future case studies.
+- [x] Add blog-ready content section with placeholder article cards that are clearly editorial content, not fake testimonials.
+- [x] Verify desktop and mobile layouts, theme switching, and production build.
+- [x] Inspect the public YouTube channel and identify a safe way to surface its videos and Shorts.
+- [x] Add YouTube channel links, latest-video discovery, and Shorts/video destinations to the website.
+- [x] Ensure the integration works without exposing private credentials and remains usable if live data is unavailable.
+- [x] Validate the YouTube-linked sections on desktop and mobile.
+- [x] Replace low-resolution YouTube thumbnail URLs with the highest available public thumbnail fallback.
+- [x] Improve image rendering with sharp scaling and a graceful fallback if a high-resolution thumbnail is unavailable.
+- [x] Re-test the Shorts grid after the thumbnail quality fix.
+- [x] Convert the brand presentation to Ankit Singh + The Mukhmall Show with consistent logo treatments in all three visual placements.
+- [x] Replace the mobile menu with an animated accessible drawer and add animated theme toggle feedback.
+- [x] Add website-development service portfolio content, packages starting at ₹3,000, and a clear enquiry CTA.
+- [x] Add a Render/YouTube auto-sync implementation note and keep the front end ready for a future feed endpoint.
+- [x] Validate mobile animations, branding, service CTA, and production build.
+- [x] Remove numbered mobile menu labels and the extra moon icon.
+- [x] Reduce mobile navbar height and control sizes without affecting desktop layout.
+- [x] Re-test the compact mobile navigation and publish the fix.
+- [x] Reduce mobile navbar logo, toggle, and menu-button dimensions further.
+- [x] Ensure tapping the backdrop outside the mobile drawer closes it reliably.
+- [x] Validate the compact interaction at phone width and publish the update.
+- [x] Choose a secure backend/email notification approach for order enquiries: Gmail SMTP.
+- [x] Add a simple validated form with only name, mobile number, website type, and starting budget.
+- [x] Add same-mobile duplicate blocking, minimal anti-spam protection, and clear success/error feedback.
+- [ ] Send one validated enquiry email privately to ankit.mukhmal.official@gmail.com.
+- [x] Document required secrets and validate the non-email submission flow; Gmail delivery remains pending until a fresh App Password is supplied.
+- [x] Choose and document a server-rendered SEO architecture: supported SSR conversion of the existing app.
+- [x] Add title, description, canonical URL, Open Graph, Twitter card, and structured-data metadata in the SSR app.
+- [x] Add sitemap.xml, robots.txt, semantic headings, and crawlable SSR content routes.
+- [x] Validate generated HTML and indexing foundations before publishing.
+- [x] Verify every requested feature remains present after migration: YouTube, Shorts, portfolio, blog-ready structure, SEO, enquiry, duplicate block, mobile navbar, theme toggle, and Render compatibility documentation. Gmail notification and Render production validation remain external.
+- [x] Do not publish until framework build, type check, tests, and desktop/mobile checks pass.
+- [x] Align Render build/start commands with the verified application runtime.
+- [x] Document Render environment variables for site URL, database, and Gmail App Password.
+- [x] Run a Render-style production build and confirm the SEO routes, homepage, and honeypot enquiry API path remain available.
+- [x] Keep mobile navbar logo, theme toggle, and menu button compact as a final responsive requirement.
+- [x] Capture final desktop validation after SSR and enquiry-form changes.
+- [x] Exercise the production enquiry endpoint through the honeypot path without sending a real email.
+- [x] Fix the Vite 7 and `@builder.io/vite-plugin-jsx-loc` peer-dependency conflict for npm/Render installs.
+- [x] Add or verify a Render-compatible Node/npm build configuration without relying on `--legacy-peer-deps`.
+- [x] Validate a clean npm install and production build, then document the exact Render settings.
+- [x] Regenerate `pnpm-lock.yaml` after removing the incompatible Vite JSX-location plugin.
+- [x] Validate both npm and pnpm install/build paths for Render and managed deployment.
+- [x] Create an updated ZIP containing synchronized lockfiles and corrected deployment configuration. Verified in the final archive.
+- [x] Replace inflated homepage channel statistics with the verified YouTube values: 80 subscribers, 16 videos, and 9,783 views.
+- [x] Replace the channel description with polished, truthful Hindi/Hinglish copy and keep the real YouTube channel link.
+- [x] Validate the updated stats and description on desktop and mobile, then publish the update.
+- [x] Choose the YouTube sync and admin architecture with a lighter fallback option.
+- [x] Add secure admin-only content controls and a YouTube API configuration path.
+- [x] Add database-backed video records, sync timestamps, and website click counts.
+- [x] Track website video clicks without falsely claiming they are YouTube views.
+- [x] Add admin analytics showing clicks per video and sync status.
+- [ ] Validate automatic recurring sync and Render deployment; permissions and responsive admin UI are complete.
+- [x] Add and verify a dedicated backend health endpoint for Render monitoring.
+- [x] Identify whether Render was configured as a Static Site instead of a Node Web Service.
+- [x] Add a Render-safe Web Service configuration and backend health endpoint/documentation.
+- [ ] Deploy the latest version to Render Web Service and verify API, SSR, database, and npm start in production.
+- [ ] Validate that the API, SSR page, database requirements, and start command work in Render production.
+- [x] Define owner-only admin scope: dashboard overview, visitors, video clicks, YouTube sync, content controls, and enquiries.
+- [x] Add secure admin login/session protection with no public access to dashboard routes.
+- [x] Add visitor/page-view analytics and video click analytics with privacy-conscious aggregation.
+- [x] Add admin views for YouTube sync status, videos/Shorts, enquiries, and spam/duplicate status.
+- [x] Validate admin security, mobile layout, analytics counts, and Render Web Service deployment. Type check and production build pass; admin route SSR verified.
+- [x] Add a real owner login action on `/admin` and verify the protected access state.
+- [x] Validate the `/admin` dashboard at mobile width.
+- [x] Add an actual YouTube sync job/API integration and expose sync status in the dashboard.
+- [ ] Verify the analytics mutations with production-safe, non-fabricated traffic and complete Render Web Service smoke testing.
+- [x] Reset existing visitor and video-click analytics only; preserve enquiries, users, and YouTube content.
+- [x] Keep YouTube subscription flow compliant: official subscribe link/widget without collecting subscriber Gmail or forcing Google login.
+- [x] Review and prioritize future enhancements requested by the owner (blog/CMS, consent, exports, and optional login).
+- [x] Document the prioritized future-enhancement backlog and rationale: Story CMS is partly implemented through owner story CRUD; consent/privacy page, admin export, and optional visitor login are deferred until their data/privacy requirements are confirmed.
+- [x] Add the verified Facebook Page link to header/footer/mobile social navigation.
+- [x] Add verified Facebook and Instagram links to the desktop header/social navigation area.
+- [x] Add and verify the official Instagram profile link once the owner confirms the exact public URL.
+- [x] Validate social links and responsive follow section on desktop/mobile.
+- [x] Validate social section on desktop and mobile and click-test both public social URLs.
+- [x] Add lightweight first-load entrance animation and YouTube stat count-up with reduced-motion support.
+- [x] Improve the public feedback section visibility and explain how approved feedback appears.
+- [x] Replace portfolio copy with professional creator/developer wording.
+- [x] Validate animation, counters, feedback visibility, responsive layout, tests, and production build.
+- [x] Add focused counter start/end and reduced-motion behavior coverage, then re-verify the homepage on first load.
+- [x] Implement and verify a compliant YouTube subscribe experience with a clearly labeled secure external CTA, without collecting subscriber Gmail or forcing Google login.
+- [x] Validate the subscribe CTA on desktop/mobile and explain that Bell/subscribe completion happens on YouTube.
+- [x] Add optional YouTube Data API support for live channel statistics and video view counts.
+- [x] Render synced channel metrics on the public homepage instead of fixed statistics when available.
+- [x] Make YouTube RSS/API sync update videos, thumbnails, view counts, subscriber metric, and sync timestamp idempotently.
+- [ ] Configure and validate recurring YouTube synchronization after production deployment.
+- [ ] Activate and validate recurring YouTube sync end-to-end after Render deployment.
+- [x] Add an engaging Stories listing and SEO-friendly individual story pages with original editorial content only.
+- [x] Add owner-only story create/edit/publish controls in the admin dashboard.
+- [x] Add owner-only editing for existing stories: title, slug, excerpt, category, and content.
+- [x] Add update-story loading/error handling and verify editing an existing story end-to-end.
+- [x] Add deterministic mutation-level coverage for story update success and feedback approve/reject behavior.
+- [x] Cover successful owner-side feedback rejection in mutation tests.
+- [x] Add a genuine customer feedback submission workflow with moderation; never fabricate reviews, ratings, or testimonials.
+- [x] Add public feedback submission error handling and test approve/reject moderation paths.
+- [x] Add owner-only permanent feedback deletion with confirmation and public-list refresh after deletion.
+- [x] Test feedback approve/delete authorization and responsive admin controls.
+- [x] Visually verify the admin feedback panel and Delete permanently control at desktop and mobile widths.
+- [x] End-to-end verify approved-feedback deletion removes the item from public homepage/Stories data after cache refresh.
+- [x] Add owner-only access assertions for the new admin mutations.
+- [x] Cover non-admin denial for enquiry status updates and enquiry deletion.
+- [x] Validate story pages, feedback moderation, responsive UI, metadata, and tests.
+- [x] Complete final desktop and mobile verification for the Stories hub and detail page after all content changes.
+- [x] Add three high-quality story-relevant cover visuals with consistent Black-Tie Broadcast art direction and no embedded text.
+- [x] Add owner-only story cover image management with both secure upload and validated external URL options.
+- [x] Display real approved-feedback star ratings, rating count, and aggregate average without fabricating data.
+- [x] Validate media authorization, file/URL validation, rating integrity, responsive UI, tests, and build.
+- [x] Integrate story cover assets into story cards/detail pages with descriptive alt text and responsive cropping.
+- [x] Validate visual quality, responsive layout, asset loading, and production build.
+- [x] Re-validate authenticated admin story edit and feedback moderation flows after final fixes.
+- [x] Re-run authenticated mutation validation after adding deterministic coverage.
+- [x] Re-run the complete admin mutation suite after missing reject and enquiry access coverage is added.
+- [x] Build a systematic owner-only enquiry manager with readable fields, dates, status, and confirmation before deletion.
+- [x] Add enquiry status workflow: new, reviewed, and archived, with owner controls in admin.
+- [x] Add a secure owner-only enquiry delete procedure and refresh the admin list after deletion.
+- [x] Enforce strict client and server validation for name, mobile, website type, budget, honeypot, and duplicate submissions.
+- [x] Add validation tests and responsive admin/enquiry verification.
+- [x] Fix enquiry submission error and show a useful user-facing fallback when email delivery is unavailable.
+- [x] Show approved customer feedback publicly in the homepage/Stories experience with pending feedback hidden.
+- [x] Replace the navbar YouTube Subscribe action with a clear Manus/Google login action and authenticated activity gate.
+- [x] Reset current site-visit rows only, preserving enquiries, videos, feedback, and click analytics.
+- [x] Make site visits unique by authenticated user identity so repeat activity counts once per account; explicit post-reset SQL checks confirm site visits 1/1 unique user, video clicks 1, enquiries 0, feedback 1, and YouTube videos 15.
+- [ ] Complete a real-browser login-flow check: unauthenticated CTA/video click opens OAuth, then authenticated return records one unique visit.
+- [x] Make the enquiry form hidden initially and reveal it with a smooth click interaction.
+- [x] Add and verify an actual animated enquiry-panel enter transition rather than an instant conditional swap.
+- [x] Add viewport-triggered hidden-to-visible section reveals with reduced-motion support.
+- [x] Repair lower-section counter animation and verify it when the stats enter the viewport.
+- [x] Test the repaired flows, responsive layout, and production build.
+- [x] Add user-facing error feedback for unsupported or oversized story image selections.
+- [x] Visually verify story image controls and rating summary/stars at mobile width.
+- [x] Fix Admin story creation failure and verify publish flow with and without a cover image.

@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786689478348,
+      "tag": "0000_aberrant_cammi",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1786725985338,
+      "tag": "0001_eminent_daredevil",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786729026469,
+      "tag": "0002_special_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1786729523082,
+      "tag": "0003_handy_angel",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1786732307648,
+      "tag": "0004_tidy_dakota_north",
+      "breakpoints": true
+    }
+  ]
+}
